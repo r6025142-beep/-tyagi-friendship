@@ -1,1 +1,604 @@
 friendship
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>💖 Friendship Day · Pooja Tyagi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #1f0f1a 0%, #150b12 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', 'Roboto', system-ui, sans-serif;
+            padding: 1.5rem;
+        }
+
+        /* ===== CARD 1 ===== */
+        .friendship-card {
+            max-width: 720px;
+            width: 100%;
+            background: #fff9f7;
+            border-radius: 48px;
+            padding: 2.4rem 2rem 2.2rem;
+            box-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 170, 170, 0.2);
+            border: 1px solid rgba(255, 190, 190, 0.25);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .friendship-card::after {
+            content: "❤️";
+            font-size: 14rem;
+            position: absolute;
+            bottom: -40px;
+            left: -30px;
+            opacity: 0.04;
+            color: #b13b3b;
+            pointer-events: none;
+        }
+
+        .heart-row {
+            text-align: center;
+            font-size: 2rem;
+            letter-spacing: 8px;
+            color: #e74c3c;
+            margin-bottom: 0.25rem;
+            filter: drop-shadow(0 4px 10px rgba(200, 60, 60, 0.25));
+        }
+
+        .heart-row i {
+            margin: 0 2px;
+            transition: transform 0.2s;
+            display: inline-block;
+        }
+
+        .heart-row i:hover {
+            transform: scale(1.2);
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            color: #2d1b2b;
+            text-align: center;
+            margin-bottom: 1.8rem;
+            background: linear-gradient(135deg, #b13b3b, #772a2a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .message-box {
+            background: rgba(255, 245, 240, 0.7);
+            backdrop-filter: blur(4px);
+            padding: 1.8rem 1.8rem 0.8rem;
+            border-radius: 36px;
+            border: 1px solid rgba(255, 190, 190, 0.4);
+            box-shadow: inset 0 2px 8px rgba(255, 255, 255, 0.6), 0 12px 24px -16px rgba(0, 0, 0, 0.3);
+        }
+
+        .message-line {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            margin-bottom: 0.9rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #2d1f2b;
+            padding: 0.1rem 0.2rem;
+        }
+
+        .message-line .heart-icon {
+            color: #d94b4b;
+            font-size: 1.2rem;
+            min-width: 1.8rem;
+            text-align: center;
+            margin-top: 0.1rem;
+        }
+
+        .message-line .text {
+            flex: 1;
+            word-break: break-word;
+        }
+
+        .message-line .text strong {
+            color: #a13d3d;
+            font-weight: 600;
+        }
+
+        .signature {
+            margin-top: 2rem;
+            text-align: right;
+            padding-right: 0.8rem;
+            font-size: 1.4rem;
+            border-top: 2px dashed rgba(200, 120, 120, 0.25);
+            padding-top: 1.2rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .signature i {
+            color: #b54141;
+            font-size: 1.5rem;
+            margin: 0 4px;
+        }
+
+        .signature .dil-se {
+            background: linear-gradient(145deg, #5f2c2c, #883b3b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
+        .signature .rajat {
+            font-weight: 700;
+            background: linear-gradient(145deg, #822b2b, #b14545);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 1px;
+        }
+
+        .final-badge {
+            text-align: center;
+            margin-top: 1.6rem;
+        }
+
+        .final-badge span {
+            background: #fceaea;
+            padding: 0.5rem 2rem;
+            border-radius: 60px;
+            font-size: 1.1rem;
+            color: #541f1f;
+            border: 1px solid #f5c8c8;
+            box-shadow: inset 0 1px 8px rgba(255, 255, 255, 0.7);
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        .final-badge i {
+            color: #b34141;
+            margin: 0 6px;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 1.8rem;
+            font-size: 1rem;
+            color: #5e3a42;
+            background: rgba(255, 220, 210, 0.3);
+            padding: 0.6rem 1.2rem;
+            border-radius: 60px;
+            border: 1px solid rgba(255, 150, 150, 0.2);
+            display: inline-block;
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .footer-note i {
+            color: #d14545;
+            margin: 0 4px;
+        }
+
+        /* ===== CARD 2 ===== */
+        .page-two {
+            max-width: 720px;
+            width: 100%;
+            background: #fff9f7;
+            border-radius: 48px;
+            padding: 2.4rem 2rem 2.2rem;
+            box-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 170, 170, 0.15);
+            border: 1px solid rgba(255, 190, 190, 0.2);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-two::before {
+            content: "🌸";
+            font-size: 10rem;
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            opacity: 0.06;
+            pointer-events: none;
+        }
+
+        .page-two h3 {
+            font-size: 2rem;
+            color: #2d1b2b;
+            text-align: center;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #b13b3b, #772a2a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 1px;
+        }
+
+        .page-two .love-message {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #2d1f2b;
+            background: rgba(255, 240, 235, 0.6);
+            padding: 1.8rem 1.8rem;
+            border-radius: 36px;
+            border: 1px solid rgba(255, 180, 180, 0.3);
+            text-align: center;
+            backdrop-filter: blur(4px);
+            box-shadow: inset 0 2px 8px rgba(255, 255, 255, 0.5);
+        }
+
+        .page-two .love-message i {
+            color: #d94b4b;
+            margin: 0 6px;
+        }
+
+        .page-two .love-message .big-heart {
+            font-size: 2.4rem;
+            display: block;
+            margin: 0.8rem 0 0.4rem;
+            color: #c0392b;
+            animation: pulse 1.8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* ===== CARD 3 - PHOTO ===== */
+        .page-three {
+            max-width: 720px;
+            width: 100%;
+            background: #fff9f7;
+            border-radius: 48px;
+            padding: 2.4rem 2rem 2.2rem;
+            box-shadow: 0 30px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 170, 170, 0.15);
+            border: 1px solid rgba(255, 190, 190, 0.2);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-three::after {
+            content: "✨";
+            font-size: 8rem;
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .page-three h3 {
+            font-size: 2rem;
+            color: #2d1b2b;
+            margin-bottom: 1.2rem;
+            background: linear-gradient(135deg, #b13b3b, #772a2a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 1px;
+        }
+
+        .page-three .image-container {
+            background: rgba(255, 235, 230, 0.5);
+            border-radius: 40px;
+            padding: 1.8rem 1.2rem;
+            border: 2px solid rgba(200, 120, 120, 0.2);
+            backdrop-filter: blur(4px);
+            box-shadow: inset 0 2px 12px rgba(255, 215, 215, 0.3);
+            margin-bottom: 1rem;
+        }
+
+        .page-three .image-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+
+        .page-three .photo-frame {
+            background: linear-gradient(145deg, #fce8e8, #f5d6d6);
+            border-radius: 32px;
+            padding: 1.2rem 1.2rem 1rem;
+            box-shadow: 0 12px 28px -8px rgba(120, 40, 40, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(200, 120, 120, 0.15);
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .page-three .photo-frame .photo {
+            background: linear-gradient(145deg, #d4a0a0, #b87a7a);
+            border-radius: 24px;
+            padding: 1.5rem 0.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            background-image: radial-gradient(circle at 30% 40%, rgba(255, 220, 220, 0.3) 0%, transparent 60%);
+            border: 2px solid rgba(255, 200, 200, 0.2);
+            position: relative;
+        }
+
+        .page-three .photo-frame .photo img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            object-fit: cover;
+        }
+
+        .page-three .photo-frame .photo .photo-label {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #fff5f0;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+            background: rgba(100, 30, 30, 0.3);
+            padding: 0.3rem 1.8rem;
+            border-radius: 60px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            margin-top: 0.6rem;
+        }
+
+        .page-three .photo-frame .photo .photo-label i {
+            color: #ffd4d4;
+            margin: 0 4px;
+        }
+
+        .page-three .image-placeholder .caption {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #3f242f;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 0.4rem 1.8rem;
+            border-radius: 60px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 150, 150, 0.2);
+        }
+
+        .page-three .image-placeholder .caption i {
+            color: #d14545;
+            margin: 0 6px;
+        }
+
+        .page-three .extra-love {
+            margin-top: 1.5rem;
+            font-size: 1.3rem;
+            color: #3f242f;
+            background: rgba(255, 220, 210, 0.25);
+            padding: 0.8rem 1.5rem;
+            border-radius: 60px;
+            display: inline-block;
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(255, 150, 150, 0.15);
+        }
+
+        .page-three .extra-love i {
+            color: #c0392b;
+            margin: 0 4px;
+        }
+
+        .page-three .final-badge-bottom {
+            margin-top: 1.8rem;
+            text-align: center;
+        }
+
+        .page-three .final-badge-bottom span {
+            background: #fceaea;
+            padding: 0.5rem 2rem;
+            border-radius: 60px;
+            font-size: 1.1rem;
+            color: #541f1f;
+            border: 1px solid #f5c8c8;
+            box-shadow: inset 0 1px 8px rgba(255, 255, 255, 0.7);
+            display: inline-block;
+        }
+
+        .page-three .final-badge-bottom i {
+            color: #b34141;
+            margin: 0 6px;
+        }
+
+        /* responsive */
+        @media (max-width: 500px) {
+            .friendship-card,
+            .page-two,
+            .page-three {
+                padding: 1.8rem 1.2rem 1.8rem;
+                border-radius: 32px;
+            }
+            .heart-row {
+                font-size: 1.5rem;
+                letter-spacing: 5px;
+            }
+            h2,
+            .page-two h3,
+            .page-three h3 {
+                font-size: 1.8rem;
+                margin-bottom: 1.2rem;
+            }
+            .message-line {
+                font-size: 0.98rem;
+                gap: 0.5rem;
+            }
+            .message-line .heart-icon {
+                font-size: 1rem;
+                min-width: 1.4rem;
+            }
+            .signature {
+                font-size: 1.15rem;
+                justify-content: center;
+            }
+            .page-two .love-message {
+                font-size: 1rem;
+                padding: 1.2rem;
+            }
+            .page-three .photo-frame .photo img {
+                max-width: 200px;
+            }
+            .page-three .photo-frame .photo .photo-label {
+                font-size: 1.1rem;
+                padding: 0.2rem 1.2rem;
+            }
+            .page-three .image-placeholder .caption {
+                font-size: 1rem;
+                padding: 0.3rem 1.2rem;
+            }
+            .page-three .extra-love {
+                font-size: 1rem;
+                padding: 0.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== CARD 1 ===== -->
+    <div class="friendship-card">
+        <div class="heart-row">
+            <i class="fas fa-heart"></i><i class="fas fa-heart"></i><i class="fas fa-heart"></i>
+            <i class="fas fa-heart"></i><i class="fas fa-heart"></i><i class="fas fa-heart"></i>
+            <i class="fas fa-heart"></i><i class="fas fa-heart"></i><i class="fas fa-heart"></i>
+            <i class="fas fa-heart"></i><i class="fas fa-heart"></i>
+        </div>
+
+        <h2>✨ Tere liye ek special message ✨</h2>
+
+        <div class="message-box">
+            <div class="message-line"><span class="heart-icon"><i class="fas fa-heart"></i></span><span class="text">Hum online mile the, aur shayad kabhi saamne mil bhi na paayein... lekin tu hamesha meri zindaagi ka ek khaas hissa rahegi.</span></div>
+            <div class="message-line"><span class="heart-icon"><i class="fas fa-heart"></i></span><span class="text">Tu meri life ki sabse achhi female friend hai. Har baat, har hasi aur har chhote-bade pal mein tu hamesha mere saath rahi hai.</span></div>
+            <div class="message-line"><span class="heart-icon"><i class="fas fa-heart"></i></span><span class="text">Tumhare dil mein meri kya jagah hai, ye toh mujhe nahi pata... par mere liye tu bahut matter karti hai, aur ye baat tu achhe se jaanti hai.</span></div>
+            <div class="message-line"><span class="heart-icon"><i class="fas fa-heart"></i></span><span class="text">Hamari dosti hamesha salamat rahe, bas yahi dua hai.</span></div>
+            <div class="message-line"><span class="heart-icon"><i class="fas fa-heart"></i></span><span class="text"><strong>Thank you yaar,</strong> meri life mein hone ke liye. Bas hamesha aisi hi rehna.</span></div>
+            <div class="message-line"><span class="heart-icon"><i class="fas fa-heart"></i></span><span class="text">Dosti sirf milne se nahi hoti yaar, kuch log door rehkar bhi dil ke bahut karib hote hain.</span></div>
+            <div class="message-line"><span class="heart-icon"><i class="fas fa-heart"></i></span><span class="text">Pata hai, tere jaisi dost bahut kam milti hain... aur mere liye tu bahut special hai.</span></div>
+            <div class="message-line"><span class="heart-icon"><i class="fas fa-heart"></i></span><span class="text"><strong>Sorry yaar,</strong> abhi itna hi kar paaya hoon.</span></div>
+            <div class="message-line"><span class="heart-icon"><i class="fas fa-heart"></i></span><span class="text">Kaun jaane... shayad hum kabhi offline mil bhi na paayein. Lekin jo bhi ho, tu hamesha meri best friend rahegi.</span></div>
+        </div>
+
+        <div class="signature">
+            <i class="fas fa-heart"></i>
+            <span class="dil-se">Dil se,</span>
+            <span style="font-weight:400; color:#3f242f; -webkit-text-fill-color:#3f242f; background:none;">Tera Dost,</span>
+            <span class="rajat">Rajat</span>
+            <i class="fas fa-heart"></i>
+        </div>
+
+        <div class="final-badge">
+            <span><i class="fas fa-heart"></i> Dil se, Tera Dost, Rajat <i class="fas fa-heart"></i></span>
+        </div>
+
+        <div style="display:flex; justify-content:center; margin-top:1.2rem;">
+            <div class="footer-note">
+                <i class="fas fa-heart"></i> Happy Friendship Day · Pooja Tyagi <i class="fas fa-heart"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== CARD 2 ===== -->
+    <div class="page-two">
+        <h3>🌸 Tu bahut khaas hai 🌸</h3>
+        <div class="love-message">
+            <i class="fas fa-heart"></i>
+            <strong>Pooja</strong>, teri dosti meri life ka sabse khoobsurat tohfa hai.
+            <br />
+            Har din tu mujhe hasati hai, samjhati hai, aur apni presence se khushi deti hai.
+            <br /><br />
+            <i class="fas fa-heart"></i>
+            <span style="font-size:1.3rem; font-weight:500; color:#882b2b;">"Tu bahut achi hai"</span>
+            <i class="fas fa-heart"></i>
+            <br />
+            <span style="display:inline-block; margin-top:0.6rem; background:rgba(255,200,200,0.2); padding:0.2rem 1.4rem; border-radius:60px; font-size:1rem;">
+                ye sirf shabd nahi, dil ki awaaz hai ❤️
+            </span>
+            <span class="big-heart">❤️</span>
+            <span style="display:block; font-size:0.95rem; color:#5a3a3a; margin-top:0.2rem;">
+                <i class="fas fa-star" style="color:#c0392b;"></i>
+                tere jaisi dost milna kisi dua se kam nahi
+                <i class="fas fa-star" style="color:#c0392b;"></i>
+            </span>
+        </div>
+    </div>
+
+    <!-- ===== CARD 3 - PHOTO ===== -->
+    <div class="page-three">
+        <h3>💖 Hamesha yad rakhna 💖</h3>
+        <div class="image-container">
+            <div class="image-placeholder">
+
+                <!-- PHOTO FRAME -->
+                <div class="photo-frame">
+                    <div class="photo">
+                        <!-- ✅ SPACE FIX: %20 use kiya hai -->
+                        <img src="pooja%20tyagi.png" alt="Pooja Tyagi" />
+                        <!-- ✅ SPACE FIX: %20 use kiya hai -->
+
+                        <div class="photo-label">
+                            <i class="fas fa-heart"></i> Pooja & Rajat <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="caption">
+                    <i class="fas fa-heart"></i>
+                    Best Friends Forever
+                    <i class="fas fa-heart"></i>
+                </div>
+
+                <div style="margin-top:0.8rem; font-size:1.8rem; font-weight:600; color:#882b2b; background:rgba(255,220,210,0.3); padding:0.3rem 1.8rem; border-radius:60px; backdrop-filter:blur(2px); border:1px solid rgba(255,150,150,0.2);">
+                    ❤️ Tu bahut achi hai ❤️
+                </div>
+            </div>
+        </div>
+
+        <div class="extra-love">
+            <i class="fas fa-heart"></i>
+            Thank you for being you, Pooja
+            <i class="fas fa-heart"></i>
+        </div>
+
+        <div class="final-badge-bottom">
+            <span>
+                <i class="fas fa-heart" style="color:#b34141;"></i>
+                Dil se, Tera Dost, Rajat
+                <i class="fas fa-heart" style="color:#b34141;"></i>
+            </span>
+        </div>
+    </div>
+
+</body>
+</html>
